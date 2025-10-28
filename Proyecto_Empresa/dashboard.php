@@ -21,12 +21,12 @@
     <div class="content" id="content">
         <h1>Dashboard Principal</h1>
         <div id="content-area" class="card">
-            <p>Aqui vamos a escribir todo</p>
+            <p>...</p>
 
         </div>
     </div>
 
-    <script src="assets/dashboard/main.js"></script>
+    <script src="assets/dashboard/sidebar.js"></script>
 </body>
 
 </html>
