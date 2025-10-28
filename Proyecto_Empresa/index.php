@@ -10,7 +10,7 @@ if(isset($_SESSION['user_sesion'])){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -257,6 +257,48 @@ if(isset($_SESSION['user_sesion'])){
     <script src="assets/js/carousel.js"></script>
     <script src="assets/js/modal_login.js"></script>
     <script src="assets/js/modal_registrarse_usuario.js"></script>
+
+    <?php 
+    if(isset($_GET['msj'])){
+        if($_GET['msj'] == "ok"){
+        ?>
+            <script>
+                Swal.fire({
+                icon: "success",
+                title: "Registrado",
+                text: "¡Usted esta registrado en el sistema!",
+                });
+            </script>
+        <?php
+        }else{
+        ?>
+            <script>
+                Swal.fire({
+                icon: "error",
+                title: "Oops!",
+                text: "¡Usted no esta registrado en el sistema!",
+                });
+            </script>
+        <?php
+        }
+    }
+
+    if(isset($_GET['error'])){
+        if($_GET['error'] == "user"){
+        ?>
+            <script>
+                Swal.fire({
+                icon: "error",
+                title: "Oops!",
+                text: "¡Contraseña o Correo incorrecta!",
+                });
+            </script>
+        <?php
+        }
+    }
+
+
+    ?>
 </body>
 
 </html>
