@@ -20,7 +20,8 @@ if(isset($_SESSION['user_sesion'])){
     <link rel="stylesheet" href="assets/css/responsive.css" />
     <link rel="stylesheet" href="assets/css/modal_login.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -28,7 +29,7 @@ if(isset($_SESSION['user_sesion'])){
         <div class="header-content">
             <a href="#" class="logo">LA CASA DEL MAESTRO</a>
             <div class="search-container">
-                <input type="text" class="search-input" placeholder="¿Que deseas buscar hoy?" />
+                <input type="text" class="search-input" placeholder="¿Que deseas buscar hoy?"/>
                 <button class="search-btn">
                     <i class="fas fa-search"></i>
                 </button>
@@ -127,7 +128,7 @@ if(isset($_SESSION['user_sesion'])){
         <section class="products-section">
             <div class="sort-container">
                 <div style="display: flex; gap: 15px; align-items: center">
-                    <span class="sort-label">Ordenar por:</span>
+                    <span class="sort-label">Ver:</span>
                     <select class="sort-select">
                         <option>Recomendados</option>
                         <option>Menor precio</option>

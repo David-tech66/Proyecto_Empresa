@@ -110,6 +110,12 @@ body {
     color: white;
 }
 
+.header-link .action {
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+}
+
 .dropdown {
     position: relative;
 }
