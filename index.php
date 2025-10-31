@@ -247,19 +247,16 @@ if(isset($_SESSION['user_sesion'])){    // Verifica si existe la variable de ses
     <div id="modalRegistrarUser" class="modal"> <!-- Contenedor principal del modal de registro. --> 
         <!-- Modal content -->
         <div class="modal-content"> <!-- Contiene el contenido visible del formulario. -->
-            <span class="closeRUser">&times;</span>
+            <span class="closeRUser">&times;</span> <!-- Muestra una "x" para cerrar este modal en especifico. -->
             <h2>Registrar Usuario</h2>
-            <form action="php/registrar_usuario.php" method="POST">
-                <label class="labelModal" for="nombre_completo">Nombre Completo</label>
-                <input class="inputGeneral" type="text" id="nombre_completo" name="nom_comp"
-                    placeholder="Ingresa tu usuario" />
+            <form action="php/registrar_usuario.php" method="POST"> <!-- Se define donde se envia loa datos al servidor PHP. -->
+                <label class="labelModal" for="nombre_completo">Nombre Completo</label> <!-- Sera visible "Nombre Completo". -->
+                <input class="inputGeneral" type="text" id="nombre_completo" name="nom_comp" placeholder="Ingresa tu usuario" />    <!-- En PHP lo se recibira con $_POST['nom_comp']. -->
                 <label class="labelModal" for="correo">Correo</label>
-                <input class="inputGeneral" type="text" id="correo" name="correo"
-                    placeholder="Ingresa tu Correo Electrónico" />
+                <input class="inputGeneral" type="text" id="correo" name="correo" placeholder="Ingresa tu Correo Electrónico" />    <!-- El valor se enviara como $_POST['correo']. -->
                 <label class="labelModal" for="password">Contraseña</label>
-                <input name="pass" type="password" id="password" class="inputGeneral"
-                    placeholder="Ingresa tu contraseña" />
-                <button type="submit" class="btnEntrarLogin">Entrar</button>
+                <input name="pass" type="password" id="password" class="inputGeneral" placeholder="Ingresa tu contraseña" />    <!-- En PHP se leera con $_POST['pass']. -->
+                <button type="submit" class="btnEntrarLogin">Entrar</button>    <!-- Envia los datos del formulario a "registrar_usuario.php. -->
             </form>
         </div>
     </div>
@@ -270,10 +267,11 @@ if(isset($_SESSION['user_sesion'])){    // Verifica si existe la variable de ses
     <script src="assets/js/modal_registrarse_usuario.js"></script>
 
     <?php 
-    if(isset($_GET['msj'])){
-        if($_GET['msj'] == "ok"){
+    if(isset($_GET['msj'])){    // Verifica si en la URL hay un parámetro llamado msj.
+        if($_GET['msj'] == "ok"){   // Si el valor del parámetro es "ok", significa que el registro fue exitoso.
         ?>
             <script>
+                // Muestra una alerta con icono de éxito.
                 Swal.fire({
                 icon: "success",
                 title: "Registrado",
@@ -284,6 +282,7 @@ if(isset($_SESSION['user_sesion'])){    // Verifica si existe la variable de ses
         }else{
         ?>
             <script>
+                // Muestra un mensaje de error.
                 Swal.fire({
                 icon: "error",
                 title: "Oops!",
@@ -294,10 +293,12 @@ if(isset($_SESSION['user_sesion'])){    // Verifica si existe la variable de ses
         }
     }
 
+    // Revisara si hay un parámetro error en la URL.
     if(isset($_GET['error'])){
         if($_GET['error'] == "user"){
         ?>
             <script>
+                // Muestra una alerta de error si el usuario escribe mal su correo o su contraseña.
                 Swal.fire({
                 icon: "error",
                 title: "Oops!",
