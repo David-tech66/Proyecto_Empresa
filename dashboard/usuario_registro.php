@@ -17,7 +17,7 @@
         <i class="fa-solid fa-bars"></i>
     </button>
     <!-- MENU LATERAL -->
-    <?php  include 'includes/menu.php';  ?>
+    <?php  include '../includes/menu.php';  ?>
     <!-- CONTENIDO PRINCIPAL -->
     <div class="content" id="content">
         <h1>Registro Usuario | Principal</h1>

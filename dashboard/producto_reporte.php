@@ -1,8 +1,8 @@
 <?php
-require('php/conexion.php');
+require('../php/conexion.php');
 session_start();
 if(isset($_SESSION['user_sesion'])){
-  $nombre_user = $_SESSION['user_sesion']['nombre'];
+    $nombre_user = $_SESSION['user_sesion']['nombre'];
 }
 ?>
 <!DOCTYPE html>
@@ -11,12 +11,10 @@ if(isset($_SESSION['user_sesion'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Principal</title>
-    <link rel="shortcut icon" href="assets/images/logo/logo.ico" type="image/x-icon">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/dashboard/style.css">
-    <link rel="stylesheet" 
-          href="assets/dashboard/drp_table.css">
+    <link rel="stylesheet" href="../assets/dashboard/style.css">
+    <link rel="stylesheet" href="../assets/dashboard/tables.css">
 </head>
 
 <body>
@@ -24,7 +22,7 @@ if(isset($_SESSION['user_sesion'])){
         <i class="fa-solid fa-bars"></i>
     </button>
     <!-- MENU LATERAL -->
-    <?php  include 'includes/menu.php';  ?>
+    <?php  include '../includes/menu.php';  ?>
     <!-- CONTENIDO PRINCIPAL -->
     <div class="content" id="content">
         <h1>Productos | Reportes</h1>
@@ -44,23 +42,20 @@ if(isset($_SESSION['user_sesion'])){
                 <?php 
                 $sql="
                     SELECT * FROM productos AS p
-                    INNER JOIN categorias_productos as ctp
-                    ON p.id_categoria = ctp.id_categoria   
-                    INNER JOIN usuarios AS u
-                    ON u.id_usuario = p.id_usuario            
+                    INNER JOIN usuarios AS u   
+                    ON u.id = p.id            
                 ";
                 $resultado = mysqli_query($conexion,$sql);
                 while($dato = mysqli_fetch_array($resultado,MYSQLI_ASSOC)){  
                     echo "<tr>";
-                    echo "<td>".$dato['id_producto']."</td>";      
-                    echo "<td>".$dato['seccion']."</td>";      
-                    echo "<td>".$dato['nombre_producto']."</td>";      
+                    echo "<td>".$dato['id']."</td>";      
+                    echo "<td>".$dato['nombre']."</td>";      
+                    echo "<td>".$dato['descripcion']."</td>";      
                     echo "<td>".$dato['precio']."</td>";      
                     echo "<td>".$dato['imagen_url']."</td>";      
+                    echo "<td>".$dato['categoria']."</td>";      
                     echo "<td>".$dato['stock']."</td>";      
-                    echo "<td>".$dato['estado']."</td>";      
-                    echo "<td>".$dato['codigo_qr']."</td>";      
-                    echo "<td>".$dato['nombre']."</td>";      
+                    echo "<td>".$dato['fecha_creacion']."</td>";            
                     echo "</tr>";
                     //print_r($dato);
                 }
@@ -68,8 +63,7 @@ if(isset($_SESSION['user_sesion'])){
             </table>
         </div>
     </div>
-
-    <script src="assets/dashboard/main.js"></script>
+    <script src="../assets/dashboard/main.js"></script>
 </body>
 
 </html>

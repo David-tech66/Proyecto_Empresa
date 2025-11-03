@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Administrativo</title>
-
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="assets/dashboard/styles.css">
@@ -21,7 +20,7 @@
     <div class="content" id="content">
         <h1>Dashboard Principal</h1>
         <div id="content-area" class="card">
-            <p>...</p>
+            <p>¡Bienvenido a su Centro de Control!</p>
 
         </div>
     </div>

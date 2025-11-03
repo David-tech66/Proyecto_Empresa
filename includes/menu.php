@@ -3,7 +3,7 @@
             <!-- LOGO DE EMPRESA -->
             <div class="profile">
                 <a href="dashboard.php">
-                    <img src="assets/images/logo/logo.png" alt="Logo de Empresa" class="logo">
+                    <img src="#" alt="Logo de Empresa" class="logo">
                 </a>
                 <h2>Mi Empresa</h2>
             </div>
@@ -18,8 +18,8 @@
                     <i class="fa-solid fa-chevron-down arrow"></i>
                 </button>
                 <div id="productosSubmenu" class="submenu">
-                    <a href="dash_producto_reporte.php" title="Ir a la página producto reporte">Ver productos</a>
-                    <a href="dash_producto_registro.php" title="Ir a la página ......">Agregar producto</a>
+                    <a href="dashboard/producto_reporte.php" title="Ir a la página producto reporte">Ver productos</a>
+                    <a href="dashboard/producto_registro.php" title="Ir a la página ......">Agregar producto</a>
                 </div>
 
                 <button class="dropdown-btn" onclick="toggleSubmenu('clientesSubmenu', this)">
@@ -30,8 +30,8 @@
                     <i class="fa-solid fa-chevron-down arrow"></i>
                 </button>
                 <div id="clientesSubmenu" class="submenu">
-                    <a href="dash_usuario_reporte.php" title="Ir a la página ......">Ver clientes</a>
-                    <a href="dash_usuario_registro.php" title="Ir a la página .....">Registrar cliente</a>
+                    <a href="dashboard/usuario_reporte.php" title="Ir a la página ......">Ver clientes</a>
+                    <a href="dashboard/usuario_registro.php" title="Ir a la página .....">Registrar cliente</a>
                 </div>
             </div>
         </div>

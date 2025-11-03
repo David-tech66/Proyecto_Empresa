@@ -1,6 +1,6 @@
 <?php
 $servidor = "localhost";
-$database = "dbcasa_del_maestro.sql";
+$database = "casa_del_maestro";
 $usuario = "root";
 $contrasenia = "";
 #Instanciar un objeto

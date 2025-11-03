@@ -1,23 +1,23 @@
-// Get the modal
+// Obtener el Modal
 let modal_registro_user = document.getElementById("modalRegistrarUser");
 
-// Get the button that opens the modal
-let btn_registro_user = document.getElementById("btnRegistrarUser");
+// Obtener el boton que abre el Modal 
+let btn_registro_user = document.getElementById("btnRegistrarse");
 
-// Get the <span> element that closes the modal
+// Obtén el elemento <span> que cierra el modal
 let span_registro_user = document.getElementsByClassName("closeRUser")[0];
 
-// When the user clicks the button, open the modal 
+// Cuando el usuario haga clic en el botón, abra el modal 
 btn_registro_user.onclick = function() {
     modal_registro_user.style.display = "block";
 }
 
-// When the user clicks on <span> (x), close the modal
+// Cuando el usuario haga clic en <span> (x), cierre el modal
 span_registro_user.onclick = function() {
     modal_registro_user.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
+// Cuando el usuario haga clic fuera del modal, ciérrelo.
 window.onclick = function(event) {
     if (event.target == modal_registro_user) {
         modal_registro_user.style.display = "none";
