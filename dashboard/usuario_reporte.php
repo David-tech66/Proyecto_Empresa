@@ -49,7 +49,7 @@ if(isset($_SESSION['user_sesion'])){
                     echo "<td>".$dato['roles']."</td>";
                     echo "<td>
                                 <button type='button' id='btnEditar' class='boton edit'>Editar</button>
-                                <button type='button' id='btnEliminar' class='boton delete'>Eliminar</button>
+                                <button type='button' data-id-user='' id='btnEliminar' class='boton delete'>Eliminar</button>
                             </td>";      
                     echo "</tr>";
                     //print_r($dato);
