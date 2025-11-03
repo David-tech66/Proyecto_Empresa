@@ -71,7 +71,7 @@
     width: 100%;
     margin-top: 15px;
     padding: 10px;
-    background: #6ba43a;
+    background: #2d5046;
     border: none;
     border-radius: 5px;
     color: white;
@@ -80,5 +80,5 @@
 }
 
 .btnEntrarLogin:hover {
-    background: #507a2b;
+    background: #3aa48b;
 }

@@ -8,17 +8,17 @@ let btn_registro_user = document.getElementById("btnRegistrarUser");
 let span_registro_user = document.getElementsByClassName("closeRUser")[0];
 
 // When the user clicks the button, open the modal 
-btn_registro_user.onclick = function () {
+btn_registro_user.onclick = function() {
     modal_registro_user.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
-span_registro_user.onclick = function () {
+span_registro_user.onclick = function() {
     modal_registro_user.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
+window.onclick = function(event) {
     if (event.target == modal_registro_user) {
         modal_registro_user.style.display = "none";
     }

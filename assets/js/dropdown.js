@@ -1,7 +1,7 @@
 function toggleDropdown(event) {
     event.preventDefault();
     const dropdown = event.target.closest('.dropdown');
-    dropdown.classlist.toggle('active');
+    dropdown.classList.toggle('active');
 }
 
 document.addEventListener('click', function(event) {

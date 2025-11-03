@@ -261,7 +261,6 @@ body {
     transform: translateX(-50%);
     display: flex;
     gap: 0.5rem;
-    z-index: 3;
 }
 
 .dot {

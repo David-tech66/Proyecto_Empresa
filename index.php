@@ -1,10 +1,10 @@
 <?php   // INICIO DEL PHP:
 session_start();    // Inicia o Reanuda una existente, permite acceder a las variables en "$_SESION".
-if(isset($_SESSION['user_sesion'])){    // Verifica si existe la variable de sesión 'user_sesion'.
+if(isset($_SESSION['user_sesion'])) {    // Verifica si existe la variable de sesión 'user_sesion'.
     # Extraen de la sesión los datos del usuario:
     $roles_user = $_SESSION['user_sesion']['roles'];    // El rol del usuario (admin, cliente, cajero).
     $nombre_user = $_SESSION['user_sesion']['nombre'];  // Nombre del usuario.
-    if($roles_user !== "cliente"){  // Comprueba si el rol no es "cliente".
+    if($roles_user !== "cliente") {  // Comprueba si el rol no es "cliente".
         header('Location: dashboard.php');  // Si no lo es, redirige al usuario a 'dashboard.php'.
     }
 }
@@ -45,9 +45,9 @@ if(isset($_SESSION['user_sesion'])){    // Verifica si existe la variable de ses
                         <span class="greeting">Hola,</span> <!-- Muestra un texto decorativo (Utilizado para CSS). -->
                         <span class="action">   <!-- Mostrara accion del menu desplegable. -->
                             <?php
-                                if(isset($nombre_user)){    // Comprueba si existe la variable '$nombre_user' y si tiene valor.
+                                if(isset($nombre_user)) {    // Comprueba si existe la variable '$nombre_user' y si tiene valor.
                                     echo $nombre_user;  // Si el usuario ya inicio sesión, mostrara su nombre.
-                                }else{
+                                } else {
                                     echo "Iniciar Sesión";  // Si no hay usuario activo, mostrara "Iniciar Sesión".
                                 }
                             ?>
@@ -133,7 +133,7 @@ if(isset($_SESSION['user_sesion'])){    // Verifica si existe la variable de ses
         <!-- Products Section -->
         <section class="products-section">  <!-- Define una sección dedicada a los productos. -->
             <div class="sort-container">    <!-- Opciones de ordenamiento (menor a mayor). -->
-                <div style="display: flex; gap: 15px; align-items: center"> <!-- Aplica un diseño flexible para alinear los elementos horizontalmente. -->
+                <div style="gap: 15px; align-items: center"> <!-- Aplica un diseño flexible para alinear los elementos horizontalmente. -->
                     <span class="sort-label">Ver:</span>    <!-- Etiqueta de texto que acompaña al selector. -->
                     <select class="sort-select">    <!-- Menu desplegable que ofrece distintas formas de ordenar productos. -->
                         <option>Recomendados</option>
@@ -249,9 +249,9 @@ if(isset($_SESSION['user_sesion'])){    // Verifica si existe la variable de ses
         <div class="modal-content"> <!-- Contiene el contenido visible del formulario. -->
             <span class="closeRUser">&times;</span> <!-- Muestra una "x" para cerrar este modal en especifico. -->
             <h2>Registrar Usuario</h2>
-            <form action="php/registrar_usuario.php" method="POST"> <!-- Se define donde se envia loa datos al servidor PHP. -->
+            <form action="php/registrarse_usuario.php" method="POST"> <!-- Se define donde se envia loa datos al servidor PHP. -->
                 <label class="labelModal" for="nombre_completo">Nombre Completo</label> <!-- Sera visible "Nombre Completo". -->
-                <input class="inputGeneral" type="text" id="nombre_completo" name="nom_comp" placeholder="Ingresa tu usuario" />    <!-- En PHP lo se recibira con $_POST['nom_comp']. -->
+                <input class="inputGeneral" type="text" id="nombre_completo" name="full_name" placeholder="Ingresa tu usuario" />    <!-- En PHP lo se recibira con $_POST['nom_comp']. -->
                 <label class="labelModal" for="correo">Correo</label>
                 <input class="inputGeneral" type="text" id="correo" name="correo" placeholder="Ingresa tu Correo Electrónico" />    <!-- El valor se enviara como $_POST['correo']. -->
                 <label class="labelModal" for="password">Contraseña</label>
