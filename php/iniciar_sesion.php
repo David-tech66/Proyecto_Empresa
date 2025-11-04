@@ -4,7 +4,6 @@ $encontrado = 0;
 $userCorreo = trim($_POST['userCorreo']);
 $userPass = trim($_POST['userPass']);
 $consulta_sql = "SELECT * FROM usuarios";
-$conexion = new mysqli("localhost", "root", "", "casa_del_maestro");
 
 if ($row = $conexion->query($consulta_sql)) {
     // print_r($row);

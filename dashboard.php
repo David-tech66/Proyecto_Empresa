@@ -25,6 +25,7 @@
     </div>
 
     <script src="assets/dashboard/sidebar.js"></script>
+    <script src="assets/dashboard/main.js"></script>
 </body>
 
 </html>

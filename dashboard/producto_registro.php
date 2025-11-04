@@ -21,7 +21,7 @@
     <div class="content" id="content">
         <h1>Registro Producto | Principal</h1>
         <div id="content-area" class="card">
-            <form action="php/dashboard/producto_registro.php" method="POST">
+            <form action="../dashboard/producto_registro.php" method="POST">
                 <div>
                     <label for="idcate">Categoria del Producto:</label>
                     <select name="ctp" id="idcate">

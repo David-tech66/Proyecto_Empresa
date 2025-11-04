@@ -18,9 +18,7 @@ if (isset($_SESSION['user_sesion'])){
 </head>
 
 <body>
-    <button class="menu-toggle" onclick="toggleSidebar()">
-        <i class="fa-solid fa-bars"></i>
-    </button>
+    <button class="menu-toggle" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
     <!-- MENU LATERAL -->
     <?php  include '../includes/menu.php';  ?>
     <!-- CONTENIDO PRINCIPAL -->
