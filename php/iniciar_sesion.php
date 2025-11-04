@@ -1,31 +1,33 @@
 <?php
+session_start();
 require 'conexion.php';
-$encontrado = 0;
+
 $userCorreo = trim($_POST['userCorreo']);
-$userPass = trim($_POST['userPass']);
-$consulta_sql = "SELECT * FROM usuarios";
+$userPass = $_POST['userPass'];
 
-if ($row = $conexion->query($consulta_sql)) {
-    // print_r($row);
-    if ($row['correo'] == $userCorreo) {
-        if ($row['pass'] == $userPass) {
-            session_start();
-            $_SESSION['user_sesion'] = $row;
-            $encontrado = 1;
-            echo "Usuario Existe, ¡Bienvenido!";
-        } else { 
-            $encontrado = 0;
-            echo "Contraseña incorrecta"; 
-        }
+$sql = "SELECT * FROM usuarios WHERE correo = ?";
+$stmt = $conexion->prepare($sql);
+$stmt->bind_param("s", $userCorreo);
+$stmt->execute();
+
+$resultado = $stmt->get_result();
+
+if ($resultado->num_rows > 0) {
+    $row = $resultado->fetch_assoc();
+
+    // Verificar la contraseña con password_verify()
+    if (password_verify($userPass, $row['contrasena'])) {
+        // Guardar info de usuario en sesión
+        $_SESSION['user_sesion'] = $row;
+        echo "Usuario autenticado, ¡Bienvenido!";
+        // header("Location: ../index.php");
     } else {
-        $encontrado = 0;
-        echo "Correo Incorrecta";
+        echo "Contraseña incorrecta";
     }
-} 
-
-if ($encontrado==1) {
-    header("Location: ../index.php");
 } else {
-    header("Location: ../index.php?error=user");
+    echo "Correo incorrecto";
 }
+
+$stmt->close();
+$conexion->close();
 ?>

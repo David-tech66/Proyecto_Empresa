@@ -1,7 +1,7 @@
 <?php
 require('../php/conexion.php');
 session_start();
-if(isset($_SESSION['user_sesion'])){
+if (isset($_SESSION['user_sesion'])){
     $nombre_user = $_SESSION['user_sesion']['nombre'];
 }
 ?>
@@ -13,44 +13,47 @@ if(isset($_SESSION['user_sesion'])){
     <title>Panel Principal</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="../assets/dashboard/styles.css">
-    <link rel="stylesheet" href="../assets/dashboard/drp_table.css">
+    <link rel="stylesheet" href="../assets/dashboard_2/styles.css">
+    <link rel="stylesheet" href="../assets/dashboard_2/tables.css">
 </head>
 
 <body>
-    <button class="menu-toggle" onclick="toggleSidebar()">
-        <i class="fa-solid fa-bars"></i>
-    </button>
+    <button class="menu-toggle" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
     <!-- MENU LATERAL -->
     <?php  include '../includes/menu.php';  ?>
     <!-- CONTENIDO PRINCIPAL -->
     <div class="content" id="content">
-        <h1>Usuarios | Reportes</h1>
+        <h1>Productos | Reportes</h1>
             <div id="content-area" class="card">
                 <table>
                 <tr>
                     <th>#</th>
+                    <th>Categoria</th>
                     <th>Nombre</th>
-                    <th>Correo Electronico</th>
-                    <th>Contraseña</th>
-                    <th>Rol</th>
-                    <th>Fecha de Registro</th>
+                    <th>Precio</th>
+                    <th>Imagen</th>
+                    <th>Stock</th>
+                    <th>Estado</th>
+                    <th>Codigo</th>
+                    <th>Usuario</th>
                 </tr>
                 <?php 
-                $sql="SELECT * FROM usuarios";
+                $sql="
+                    SELECT * FROM productos AS p
+                    INNER JOIN usuarios AS u   
+                    ON u.id = p.id            
+                ";
                 $resultado = mysqli_query($conexion,$sql);
                 while($dato = mysqli_fetch_array($resultado,MYSQLI_ASSOC)){  
                     echo "<tr>";
                     echo "<td>".$dato['id']."</td>";      
                     echo "<td>".$dato['nombre']."</td>";      
-                    echo "<td>".$dato['correo']."</td>";      
-                    echo "<td>".$dato['contrasena']."</td>";      
-                    echo "<td>".$dato['rol']."</td>";
-                    echo "<td>".$dato['fecha_registro']."</td>";
-                    echo "<td>
-                                <button type='button' id='btnEditar' class='boton edit'>Editar</button>
-                                <button type='button' data-id-user='' id='btnEliminar' class='boton delete'>Eliminar</button>
-                            </td>";      
+                    echo "<td>".$dato['descripcion']."</td>";      
+                    echo "<td>".$dato['precio']."</td>";      
+                    echo "<td>".$dato['imagen_url']."</td>";      
+                    echo "<td>".$dato['categoria']."</td>";      
+                    echo "<td>".$dato['stock']."</td>";      
+                    echo "<td>".$dato['fecha_creacion']."</td>";            
                     echo "</tr>";
                     //print_r($dato);
                 }
@@ -58,9 +61,7 @@ if(isset($_SESSION['user_sesion'])){
             </table>
         </div>
     </div>
-
-    <script src="../assets/dashboard/main.js"></script>
-    <script src="../assets/dashboard/ajax.js"></script>
+    <script src="../assets/dashboard_2/main.js"></script>
 </body>
 
 </html>

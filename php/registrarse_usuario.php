@@ -1,14 +1,24 @@
 <?php
-    require 'conexion.php';
-    $full_name = trim($_POST['full_name']);
-    $correo = trim($_POST['correo']);
-    $pass = trim($_POST['pass']);
-    $rol = trim($_POST['rol']);
-    $sql_save = "INSERT INTO usuarios(nombre, correo, contrasena, rol) values('$full_name','$correo','$pass', '$rol');";
-    $resultado = $conexion->query($sql_save);  
-    if ($resultado) {
-        header('Location: ../index.php?msj=ok');
-    } else {
-        header('Location: ../index.php?msj=error');
-    }
+require 'conexion.php';
+
+$nombre = trim($_POST['full_name']);
+$correo = trim($_POST['correo']);
+$pass = $_POST['pass'];
+
+// Hashear la contraseña con password_hash()
+$hashedPass = password_hash($pass, PASSWORD_DEFAULT);
+
+$sql = "INSERT INTO usuarios (nombre, correo, contrasena) VALUES (?, ?, ?)";
+$stmt = $conexion->prepare($sql);
+$stmt->bind_param("sss", $nombre, $correo, $hashedPass);
+
+if ($stmt->execute()) {
+    echo "Usuario registrado con éxito";
+    // Aquí puedes redirigir o mostrar mensaje
+} else {
+    echo "Error al registrar usuario: " . $stmt->error;
+}
+
+$stmt->close();
+$conexion->close();
 ?>

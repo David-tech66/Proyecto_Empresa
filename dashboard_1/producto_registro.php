@@ -7,7 +7,7 @@
     <title>Panel Principal</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="../assets/dashboard/styles.css">
+    <link rel="stylesheet" href="../assets/dashboard_2/styles.css">
 
 </head>
 
@@ -21,7 +21,7 @@
     <div class="content" id="content">
         <h1>Registro Producto | Principal</h1>
         <div id="content-area" class="card">
-            <form action="../dashboard/producto_registro.php" method="POST">
+            <form action="php/dashboard_3/producto_registro.php" method="POST">
                 <div>
                     <label for="idcate">Categoria del Producto:</label>
                     <select name="ctp" id="idcate">
@@ -57,7 +57,7 @@
         </div>
     </div>
 
-    <script src="assets/dashboard/main.js"></script>
+    <script src="../assets/dashboard_2/main.js"></script>
 </body>
 
 </html>

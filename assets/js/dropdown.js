@@ -1,16 +1,22 @@
-function toggleDropdown(event) {
-    event.preventDefault();
-    const dropdown = event.target.closest('.dropdown');
-    dropdown.classList.toggle('active');
-}
+// Obtener elementos
+const btnLogin = document.getElementById('btnLogin');
+const modalLogin = document.getElementById('modalLogin');
+const closeLogin = modalLogin.querySelector('.close');
 
-document.addEventListener('click', function(event) {
-    if (!event.target.closest('.dropdown')) {
-        document.querySelectorAll('.dropdown').forEach(dropdown => {
-            dropdown.classList.remove('active');
-        });
-    }
+// Abrir modal al hacer clic en "Iniciar Sesión"
+btnLogin.addEventListener('click', function (e) {
+    e.preventDefault(); // Prevenir comportamiento por defecto del enlace
+    modalLogin.style.display = 'block';
 });
 
-document.getElementById('btnLogin').addEventListener('click', toggleDropdown);
-document.getElementById('btnRegistrarse').addEventListener('click', toggleDropdown);
+// Cerrar modal al hacer clic en la 'x'
+closeLogin.addEventListener('click', function () {
+    modalLogin.style.display = 'none';
+});
+
+// Cerrar modal al hacer clic fuera del contenido del modal
+window.addEventListener('click', function (e) {
+    if (e.target == modalLogin) {
+        modalLogin.style.display = 'none';
+    }
+});

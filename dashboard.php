@@ -7,7 +7,7 @@
     <title>Panel Administrativo</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/dashboard/styles.css">
+    <link rel="stylesheet" href="assets/dashboard_2/styles.css">
 </head>
 
 <body>
@@ -24,8 +24,7 @@
         </div>
     </div>
 
-    <script src="assets/dashboard/sidebar.js"></script>
-    <script src="assets/dashboard/main.js"></script>
+    <script src="assets/dashboard_2/main.js"></script>
 </body>
 
 </html>
