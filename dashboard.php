@@ -21,7 +21,6 @@
         <h1>Dashboard Principal</h1>
         <div id="content-area" class="card">
             <p>¡Bienvenido a su Centro de Control!</p>
-
         </div>
     </div>
 

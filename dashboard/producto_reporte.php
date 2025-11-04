@@ -1,7 +1,7 @@
 <?php
 require('../php/conexion.php');
 session_start();
-if(isset($_SESSION['user_sesion'])){
+if (isset($_SESSION['user_sesion'])){
     $nombre_user = $_SESSION['user_sesion']['nombre'];
 }
 ?>
@@ -13,7 +13,7 @@ if(isset($_SESSION['user_sesion'])){
     <title>Panel Principal</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="../assets/dashboard/style.css">
+    <link rel="stylesheet" href="../assets/dashboard/styles.css">
     <link rel="stylesheet" href="../assets/dashboard/tables.css">
 </head>
 

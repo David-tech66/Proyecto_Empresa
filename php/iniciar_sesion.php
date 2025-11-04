@@ -1,33 +1,32 @@
 <?php
 require 'conexion.php';
 $encontrado = 0;
-$userCorreo=trim($_POST['ucorreo']);
-$userPass=trim($_POST['upass']);
-$consulta_sql  = "SELECT * FROM usuarios";
-$resultado = $conexion->query($consulta_sql);
-while($row = $resultado->fetch_array(MYSQLI_ASSOC)){
+$userCorreo = trim($_POST['userCorreo']);
+$userPass = trim($_POST['userPass']);
+$consulta_sql = "SELECT * FROM usuarios";
+$conexion = new mysqli("localhost", "root", "", "casa_del_maestro");
+
+if ($row = $conexion->query($consulta_sql)) {
     // print_r($row);
-    if($row['correo'] == $userCorreo){
-        if($row['pass'] == $userPass){
+    if ($row['correo'] == $userCorreo) {
+        if ($row['pass'] == $userPass) {
             session_start();
             $_SESSION['user_sesion'] = $row;
             $encontrado = 1;
             echo "Usuario Existe, ¡Bienvenido!";
-            break;
-        }else{ 
+        } else { 
             $encontrado = 0;
             echo "Contraseña incorrecta"; 
         }
-    }else{
+    } else {
         $encontrado = 0;
         echo "Correo Incorrecta";
     }
 } 
 
-if($encontrado==1){
+if ($encontrado==1) {
     header("Location: ../index.php");
-}else{
+} else {
     header("Location: ../index.php?error=user");
 }
-# $conn = new mysqli("localhost", "root", "", "casa_del_maestro");
 ?>

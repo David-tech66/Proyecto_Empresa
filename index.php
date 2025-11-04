@@ -45,7 +45,7 @@ if(isset($_SESSION['user_sesion'])) {    // Verifica si existe la variable de se
                         <span class="greeting">Hola,</span> <!-- Muestra un texto decorativo (Utilizado para CSS). -->
                         <span class="action">   <!-- Mostrara accion del menu desplegable. -->
                             <?php
-                                if(isset($nombre_user)) {    // Comprueba si existe la variable '$nombre_user' y si tiene valor.
+                                if (isset($nombre_user)) {    // Comprueba si existe la variable '$nombre_user' y si tiene valor.
                                     echo $nombre_user;  // Si el usuario ya inicio sesión, mostrara su nombre.
                                 } else {
                                     echo "Iniciar Sesión";  // Si no hay usuario activo, mostrara "Iniciar Sesión".
@@ -55,7 +55,7 @@ if(isset($_SESSION['user_sesion'])) {    // Verifica si existe la variable de se
                     </a>
                     <div class="dropdown-menu"> <!-- Aparece al hacer click en el usuario. -->
                         <?php
-                            if(!isset($_SESSION['user_sesion'])) {  // Verifica si NO existe una sesión activa:
+                            if (!isset($_SESSION['user_sesion'])) {  // Verifica si NO existe una sesión activa:
                                 ?>
                                     <!-- Si no hay mostrara el formulario del login: -->
                                     <a href="#" class="dropdown-item" id="btnLogin">Iniciar Sesión</a>
@@ -234,10 +234,10 @@ if(isset($_SESSION['user_sesion'])) {    // Verifica si existe la variable de se
             <h2>Iniciar Sesión</h2>
             <form action="php/iniciar_sesion.php" method="POST">    <!-- Inicia el formulario de inicio de sesión. -->
                 <label class="labelModal" for="correo">Correo</label>   <!-- El "<label>" muestra el texto "correo". -->
-                <input class="inputGeneral" type="email" id="correo" name="usercorreo" placeholder="Ingresa tu usuario" />  <!-- El "<input>" es de tipo "email", asi que el navegador validará que tenga el formato de correo. 
+                <input class="inputGeneral" type="email" id="correo" name="userCorreo" placeholder="Ingresa tu usuario" />  <!-- El "<input>" es de tipo "email", asi que el navegador validará que tenga el formato de correo. 
                                                                                                                                 El atributo name"usercorreo" es el nombre de variable que PHP usará para recibir el valor. -->
                 <label class="labelModal" for="password">Contraseña</label>
-                <input class="inputGeneral" type="password" id="password" name="userpass" placeholder="Ingresa tu contraseña" />    <!-- type="password" oculta los caracteres al escribir.
+                <input class="inputGeneral" type="password" id="password" name="userPass" placeholder="Ingresa tu contraseña" />    <!-- type="password" oculta los caracteres al escribir.
                                                                                                                                 name="userpass" será la clave para leer la contraseña en PHP "($_POST['userpass'])". -->
                 <button type="submit" class="btnEntrarLogin">Entrar</button>    <!-- Envia los datos al archivo PHP configurado en "action" (Cuando se hace click, se valida el usuario con PHP y la base de datos). -->
             </form>
@@ -251,11 +251,11 @@ if(isset($_SESSION['user_sesion'])) {    // Verifica si existe la variable de se
             <h2>Registrar Usuario</h2>
             <form action="php/registrarse_usuario.php" method="POST"> <!-- Se define donde se envia loa datos al servidor PHP. -->
                 <label class="labelModal" for="nombre_completo">Nombre Completo</label> <!-- Sera visible "Nombre Completo". -->
-                <input class="inputGeneral" type="text" id="nombre_completo" name="full_name" placeholder="Ingresa tu usuario" />    <!-- En PHP lo se recibira con $_POST['nom_comp']. -->
+                <input class="inputGeneral" type="text" id="nombre_completo" name="full_name" placeholder="Ingresa tu usuario"/>    <!-- En PHP lo se recibira con $_POST['nom_comp']. -->
                 <label class="labelModal" for="correo">Correo</label>
-                <input class="inputGeneral" type="text" id="correo" name="correo" placeholder="Ingresa tu Correo Electrónico" />    <!-- El valor se enviara como $_POST['correo']. -->
+                <input class="inputGeneral" type="text" id="correo" name="correo" placeholder="Ingresa tu Correo Electrónico"/>    <!-- El valor se enviara como $_POST['correo']. -->
                 <label class="labelModal" for="password">Contraseña</label>
-                <input name="pass" type="password" id="password" class="inputGeneral" placeholder="Ingresa tu contraseña" />    <!-- En PHP se leera con $_POST['pass']. -->
+                <input class="inputGeneral" type="password" id="password" name="pass" placeholder="Ingresa tu contraseña"/>    <!-- En PHP se leera con $_POST['pass']. -->
                 <button type="submit" class="btnEntrarLogin">Entrar</button>    <!-- Envia los datos del formulario a "registrar_usuario.php. -->
             </form>
         </div>
