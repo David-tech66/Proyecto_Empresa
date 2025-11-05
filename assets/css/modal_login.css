@@ -29,6 +29,7 @@
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
+    border-radius: 15px;
     width: 20%;
 }
 
@@ -71,7 +72,7 @@
     width: 100%;
     margin-top: 15px;
     padding: 10px;
-    background: #2d5046;
+    background: #002c40;
     border: none;
     border-radius: 5px;
     color: white;
@@ -80,5 +81,5 @@
 }
 
 .btnEntrarLogin:hover {
-    background: #3aa48b;
+    background: #004c70;
 }

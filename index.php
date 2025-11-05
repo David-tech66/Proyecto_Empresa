@@ -224,7 +224,7 @@ if (isset($_SESSION['user_sesion'])) {
                     id="passwordLogin"
                     name="userPass"
                     placeholder="Ingresa tu contraseña" required />
-                <button type="submit" class="btnEntrarLogin">Entrar</button>
+                <button type="submit" class="btnEntrarLogin">INGRESAR</button>
             </form>
         </div>
     </div>
@@ -256,7 +256,7 @@ if (isset($_SESSION['user_sesion'])) {
                     id="passwordRegistro"
                     class="inputGeneral"
                     placeholder="Ingresa tu contraseña" />
-                <button type="submit" class="btnEntrarLogin">Entrar</button>
+                <button type="submit" class="btnEntrarLogin">INGRESAR</button>
             </form>
         </div>
     </div>
