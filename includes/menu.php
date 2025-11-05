@@ -2,8 +2,8 @@
         <div class="sidebar-content">
             <!-- LOGO DE EMPRESA -->
             <div class="profile">
-                <a href="dashboard.php">
-                    <img src="#" alt="Logo de Empresa" class="logo">
+                <a href="/Proyecto_Empresa/dashboard.php">
+                    <img src="/Proyecto_Empresa/assets/imagen/logo.webp" alt="Logo de Empresa" class="logo">
                 </a>
                 <h2>Mi Empresa</h2>
             </div>
@@ -18,8 +18,8 @@
                     <i class="fa-solid fa-chevron-down arrow"></i>
                 </button>
                 <div id="productosSubmenu" class="submenu">
-                    <a href="dashboard_1/producto_reporte.php" title="Ir a la página producto reporte">Ver productos</a>
-                    <a href="dashboard_1/producto_registro.php" title="Ir a la página ......">Agregar producto</a>
+                    <a href="/Proyecto_Empresa/dashboard_1/producto_reporte.php" title="Ir a la página producto reporte">Ver productos</a>
+                    <a href="/Proyecto_Empresa/dashboard_1/producto_registro.php" title="Ir a la página ......">Agregar producto</a>
                 </div>
 
                 <button class="dropdown-btn" onclick="toggleSubmenu('clientesSubmenu', this)">
@@ -30,8 +30,8 @@
                     <i class="fa-solid fa-chevron-down arrow"></i>
                 </button>
                 <div id="clientesSubmenu" class="submenu">
-                    <a href="dashboard_1/usuario_reporte.php" title="Ir a la página ......">Ver clientes</a>
-                    <a href="dashboard_1/usuario_registro.php" title="Ir a la página .....">Registrar cliente</a>
+                    <a href="/Proyecto_Empresa/dashboard_1/usuario_reporte.php" title="Ir a la página ......">Ver clientes</a>
+                    <a href="/Proyecto_Empresa/dashboard_1/usuario_registro.php" title="Ir a la página .....">Registrar cliente</a>
                 </div>
             </div>
         </div>

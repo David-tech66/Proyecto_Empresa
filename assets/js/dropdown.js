@@ -1,22 +1,18 @@
-// Obtener elementos
-const btnLogin = document.getElementById('btnLogin');
-const modalLogin = document.getElementById('modalLogin');
-const closeLogin = modalLogin.querySelector('.close');
+// --- FUNCIÓN GLOBAL ---
+// (Debe estar en el ámbito global para que el onclick del HTML la reconozca)
+function toggleDropdown(event) {
+    event.preventDefault(); // evita la acción por defecto
+    const dropdown = event.target.closest('.dropdown');
+    if (dropdown) {
+        dropdown.classList.toggle('active');
+    }
+}
 
-// Abrir modal al hacer clic en "Iniciar Sesión"
-btnLogin.addEventListener('click', function (e) {
-    e.preventDefault(); // Prevenir comportamiento por defecto del enlace
-    modalLogin.style.display = 'block';
-});
-
-// Cerrar modal al hacer clic en la 'x'
-closeLogin.addEventListener('click', function () {
-    modalLogin.style.display = 'none';
-});
-
-// Cerrar modal al hacer clic fuera del contenido del modal
-window.addEventListener('click', function (e) {
-    if (e.target == modalLogin) {
-        modalLogin.style.display = 'none';
+// --- CERRAR DROPDOWN AL HACER CLIC FUERA ---
+document.addEventListener('click', function (event) {
+    if (!event.target.closest('.dropdown')) {
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            dropdown.classList.remove('active');
+        });
     }
 });

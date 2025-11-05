@@ -11,6 +11,7 @@ if(isset($_SESSION['user_sesion'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Principal</title>
+    <link rel="shortcut icon" href="assets/imagen/logo.webp" type="image/webp">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/dashboard_2/styles.css">
@@ -27,7 +28,7 @@ if(isset($_SESSION['user_sesion'])){
     <div class="content" id="content">
         <h1>Usuarios | Reportes</h1>
             <p class="contenedor-editar" >
-                <form action="php/dashboard_3/usuario_actualizar.php" method="post" id="formEditar" style="display:none">
+                <form action="../php/dashboard_3/usuario_actualizar.php" method="post" id="formEditar" style="display:none">
                         <label for="nombre">Nombre</label>
                         <input type="hidden" id="idusr" name="iduser">
                         <input type="text" id="nom" name="nom" placeholder="Escribe tu nombre">
@@ -79,8 +80,8 @@ if(isset($_SESSION['user_sesion'])){
         </div>
     </div>
 
-    <script src="../assets/dashboard/main.js"></script>
-    <script src="../assets/dashboard/ajax.js"></script>
+    <script src="../assets/dashboard_2/main.js"></script>
+    <script src="../assets/dashboard_2/ajax.js"></script>
 </body>
 
 </html>

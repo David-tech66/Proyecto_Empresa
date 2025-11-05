@@ -1,25 +1,27 @@
-// Get the modal
-let modal = document.getElementById("modalLogin");
+document.addEventListener("DOMContentLoaded", function () {
+    // Obtener elementos solo si existen
+    const modal = document.getElementById("modalLogin");
+    const btn = document.getElementById("btnLogin");
+    const span = document.querySelector(".close");
 
-// Get the button that opens the modal
-let btn = document.getElementById("btnLogin");
-
-// Get the <span> element that closes the modal
-let span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function () {
-    modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    // Si el botón existe (usuario no logueado)
+    if (btn && modal) {
+        btn.onclick = function () {
+            modal.style.display = "block";
+        };
     }
-}
+
+    // Si el botón de cerrar existe
+    if (span) {
+        span.onclick = function () {
+            modal.style.display = "none";
+        };
+    }
+
+    // Cerrar modal al hacer clic fuera
+    window.onclick = function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    };
+});

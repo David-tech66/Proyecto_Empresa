@@ -2,12 +2,11 @@
 session_start();
 
 if (isset($_SESSION['user_sesion'])) {
-    $roles_user = $_SESSION['user_sesion']['roles'];
+    $roles_user = $_SESSION['user_sesion']['rol'];
     $nombre_user = $_SESSION['user_sesion']['nombre'];
 
     if ($roles_user !== "cliente") {
         header('Location: dashboard.php');
-        exit();
     }
 }
 ?>
@@ -24,6 +23,7 @@ if (isset($_SESSION['user_sesion'])) {
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
     <link rel="stylesheet" href="assets/css/modal_login.css" />
+    <link rel="shortcut icon" href="assets/Imagen/logo.webp" type="image/webp">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -50,7 +50,7 @@ if (isset($_SESSION['user_sesion'])) {
                         <span class="action">
                             <?php
                             if (isset($nombre_user)) {
-                                echo htmlspecialchars($nombre_user, ENT_QUOTES, 'UTF-8');
+                                echo $nombre_user;
                             } else {
                                 echo "Iniciar Sesión";
                             }
@@ -211,9 +211,19 @@ if (isset($_SESSION['user_sesion'])) {
             <h2>Iniciar Sesión</h2>
             <form action="php/iniciar_sesion.php" method="POST">
                 <label class="labelModal" for="correo">Correo</label>
-                <input class="inputGeneral" type="email" id="correo" name="userCorreo" placeholder="Ingresa tu usuario" required />
+                <input
+                    class="inputGeneral"
+                    type="email"
+                    id="correo"
+                    name="userCorreo"
+                    placeholder="Ingresa tu usuario" required />
                 <label class="labelModal" for="password">Contraseña</label>
-                <input class="inputGeneral" type="password" id="password" name="userPass" placeholder="Ingresa tu contraseña" required />
+                <input
+                    class="inputGeneral"
+                    type="password"
+                    id="passwordLogin"
+                    name="userPass"
+                    placeholder="Ingresa tu contraseña" required />
                 <button type="submit" class="btnEntrarLogin">Entrar</button>
             </form>
         </div>
@@ -226,12 +236,112 @@ if (isset($_SESSION['user_sesion'])) {
             <h2>Registrar Usuario</h2>
             <form action="php/registrarse_usuario.php" method="POST">
                 <label class="labelModal" for="nombre_completo">Nombre Completo</label>
-                <input class="inputGeneral" type="text" id="nombre_completo" name="full_name" placeholder="Ingresa tu nombre completo" required />
+                <input
+                    class="inputGeneral"
+                    type="text"
+                    id="nombre_completo"
+                    name="full_name"
+                    placeholder="Ingresa tu nombre completo" required />
                 <label class="labelModal" for="correo_registro">Correo</label>
-                <input class="inputGeneral" type="email" id="correo_registro" name="correo" placeholder="Ingresa tu Correo Electrónico" required />
+                <input
+                    class="inputGeneral"
+                    type="email"
+                    id="correo_registro"
+                    name="correo"
+                    placeholder="Ingresa tu Correo Electrónico" required />
                 <label class="labelModal" for="password_registro">Contraseña</label>
-                <input class="inputGeneral" type="password" id="password_registro" name="pass" placeholder="Ingresa tu"/>
+                <input
+                    name="pass"
+                    type="password"
+                    id="passwordRegistro"
+                    class="inputGeneral"
+                    placeholder="Ingresa tu contraseña" />
+                <button type="submit" class="btnEntrarLogin">Entrar</button>
             </form>
         </div>
     </div>
-</body>        
+    <script src="assets/js/carousel.js"></script>
+    <script src="assets/js/dropdown.js"></script>
+    <script src="assets/js/modal_registrarse_usuario.js"></script>
+    <script src="assets/js/modal_login.js"></script>
+
+    <?php 
+if (isset($_GET['msj']) || isset($_GET['login']) || isset($_GET['error'])) {
+
+    // Mensajes de registro
+    if (isset($_GET['msj'])) {
+        if ($_GET['msj'] == "ok") {
+            echo "
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Usuario registrado',
+                    text: 'El registro se completó correctamente',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Aceptar'
+                });
+            </script>";
+        } elseif ($_GET['msj'] == "error") {
+            echo "
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Ocurrió un problema al registrar el usuario'
+                });
+            </script>";
+        } elseif ($_GET['msj'] == "correo_existente") {
+            echo "
+            <script>
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Correo en uso',
+                    text: 'Ya existe una cuenta con ese correo'
+                });
+            </script>";
+        }
+    }
+
+    // Mensajes de inicio de sesión
+    if (isset($_GET['login'])) {
+        if ($_GET['login'] == "ok") {
+            echo "
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Bienvenido',
+                    text: 'Inicio de sesión correcto',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Continuar'
+                });
+            </script>";
+        }
+    }
+
+    // Mensajes de error en login
+    if (isset($_GET['error'])) {
+        if ($_GET['error'] == "correo") {
+            echo "
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Correo no encontrado',
+                    text: 'Verifica el correo ingresado'
+                });
+            </script>";
+        } elseif ($_GET['error'] == "pass") {
+            echo "
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Contraseña incorrecta',
+                    text: 'Vuelve a intentarlo'
+                });
+            </script>";
+        }
+    }
+}
+?>
+
+
+</body>

@@ -1,25 +1,27 @@
-// Obtener el Modal
-let modal_registro_user = document.getElementById("modalRegistrarUser");
+document.addEventListener("DOMContentLoaded", function () {
+    // Obtener elementos solo si existen
+    const modalRegistro = document.getElementById("modalRegistrarUser");
+    const btnRegistro = document.getElementById("btnRegistrarse");
+    const spanCerrar = document.querySelector(".closeRUser");
 
-// Obtener el boton que abre el Modal 
-let btn_registro_user = document.getElementById("btnRegistrarse");
-
-// Obtén el elemento <span> que cierra el modal
-let span_registro_user = document.getElementsByClassName("closeRUser")[0];
-
-// Cuando el usuario haga clic en el botón, abra el modal 
-btn_registro_user.onclick = function() {
-    modal_registro_user.style.display = "block";
-}
-
-// Cuando el usuario haga clic en <span> (x), cierre el modal
-span_registro_user.onclick = function() {
-    modal_registro_user.style.display = "none";
-}
-
-// Cuando el usuario haga clic fuera del modal, ciérrelo.
-window.onclick = function(event) {
-    if (event.target == modal_registro_user) {
-        modal_registro_user.style.display = "none";
+    // Abrir modal (solo si el botón existe)
+    if (btnRegistro && modalRegistro) {
+        btnRegistro.onclick = function () {
+            modalRegistro.style.display = "block";
+        };
     }
-}
+
+    // Cerrar modal con la X (solo si existe)
+    if (spanCerrar) {
+        spanCerrar.onclick = function () {
+            modalRegistro.style.display = "none";
+        };
+    }
+
+    // Cerrar modal al hacer clic fuera
+    window.onclick = function (event) {
+        if (event.target === modalRegistro) {
+            modalRegistro.style.display = "none";
+        }
+    };
+});

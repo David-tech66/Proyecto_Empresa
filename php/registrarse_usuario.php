@@ -1,24 +1,44 @@
 <?php
 require 'conexion.php';
 
-$nombre = trim($_POST['full_name']);
-$correo = trim($_POST['correo']);
-$pass = $_POST['pass'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Sanitizar entradas
+    $nombre = trim($_POST['full_name']);
+    $correo = trim($_POST['correo']);
+    $pass = trim($_POST['pass']); // Contraseña en texto plano (sin hash)
 
-// Hashear la contraseña con password_hash()
-$hashedPass = password_hash($pass, PASSWORD_DEFAULT);
+    // Verificar si el correo ya existe
+    $check = $conexion->prepare("SELECT id FROM usuarios WHERE correo = ?");
+    $check->bind_param("s", $correo);
+    $check->execute();
+    $result = $check->get_result();
 
-$sql = "INSERT INTO usuarios (nombre, correo, contrasena) VALUES (?, ?, ?)";
-$stmt = $conexion->prepare($sql);
-$stmt->bind_param("sss", $nombre, $correo, $hashedPass);
+    if ($result->num_rows > 0) {
+        // Correo existente → mensaje y salida
+        echo "<script>
+            window.location.href = '../index.php?msj=correo_existente';
+        </script>";
+        exit();
+    }
 
-if ($stmt->execute()) {
-    echo "Usuario registrado con éxito";
-    // Aquí puedes redirigir o mostrar mensaje
-} else {
-    echo "Error al registrar usuario: " . $stmt->error;
+    $check->close();
+
+    // Insertar nuevo usuario (guardando la contraseña normal)
+    $stmt = $conexion->prepare("INSERT INTO usuarios (nombre, correo, contrasena, rol) VALUES (?, ?, ?, 'cliente')");
+    $stmt->bind_param("sss", $nombre, $correo, $pass);
+
+    if ($stmt->execute()) {
+        echo "<script>
+            window.location.href = '../index.php?msj=ok';
+        </script>";
+    } else {
+        echo "<script>
+            window.location.href = '../index.php?msj=error';
+        </script>";
+    }
+
+    $stmt->close();
+    $conexion->close();
 }
-
-$stmt->close();
-$conexion->close();
 ?>
+
