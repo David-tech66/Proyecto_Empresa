@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Principal</title>
-    <link rel="shortcut icon" href="assets/imagen/logo.webp" type="image/webp">
+    <link rel="shortcut icon" href="../assets/imagen/logo.webp" type="image/webp">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/dashboard_2/styles.css">
@@ -25,21 +25,27 @@
             <form action="../php/dashboard_3/usuario_registro.php" method="POST">
                 <div>
                     <label for="nombre">Nombre :</label>
-                    <input type="text" id="nombre" name="nom" placeholder="Escribe su nombre aqui">
+                    <input 
+                        type="text" 
+                        id="nombre" 
+                        name="nombre" 
+                        placeholder="Escribe su nombre aqui">
                 </div>
                 <div>
                     <label for="correo">Correo Electronico :</label>
-                    <input type="email" 
-                            name="correo"
-                            id="correo" 
-                            placeholder="Escribe su correo electronico">
+                    <input 
+                        type="email" 
+                        name="correo"
+                        id="correo" 
+                        placeholder="Escribe su correo electronico">
                 </div>
                 <div>
-                    <label for="pass">Contraseña :</label>
-                    <input type="password"
-                            name="pass" 
-                            id="pass" 
-                            placeholder="Escribe su contraseña">
+                    <label for="contrasena">Contraseña :</label>
+                    <input 
+                        type="password"
+                        name="contrasena" 
+                        id="contrasena" 
+                        placeholder="Escribe su contraseña">
                 </div>
                 <div>
                     <label for="roles">Roles :</label>

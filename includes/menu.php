@@ -5,7 +5,7 @@
                 <a href="/Proyecto_Empresa/dashboard.php">
                     <img src="/Proyecto_Empresa/assets/imagen/logo.webp" alt="Logo de Empresa" class="logo">
                 </a>
-                <h2>Mi Empresa</h2>
+                <h2>LA CASA DEL MAESTRO</h2>
             </div>
 
             <!-- MENÚ -->

@@ -31,7 +31,7 @@ btnEliminar.forEach(function (botones) {
         alert("Eliminaremos el usuario con el ID: " + idUser)
         //Almacenar en un objeto 
         let datosUser = { id_u: idUser };
-        fetch("php/dashboard/usuario_eliminar.php", {
+        fetch("/Proyecto_Empresa/php/dashboard_3/usuario_eliminar.php", {
             method: "POST",
             headers: {
                 Accept: "application/json",
